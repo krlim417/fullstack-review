@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';new XMLHttpRequest()
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Search from './components/Search.jsx';
@@ -14,8 +14,18 @@ class App extends React.Component {
   }
 
   search (term) {
-    console.log(`${term} was searched`);
-    // TODO
+    $.ajax({
+      type: "POST",
+      url: "/repos",
+      data: JSON.stringify(term),
+      contentType: "json",
+      success: function(data) {
+        console.log('The search was successful.');
+      },
+      error: function() {
+        console.log('The search was unsuccessful.');
+      }
+    });
   }
 
   render () {
