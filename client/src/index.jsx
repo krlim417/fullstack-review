@@ -10,7 +10,24 @@ class App extends React.Component {
     this.state = { 
       repos: []
     }
+  }
 
+  componentDidMount() {
+    $.ajax({
+      type: "GET",
+      url: "/repos",
+      success: function(data) {
+        console.log('The fetch was successful.');
+        console.log('DATA', data);
+      },
+      error: function() {
+        console.log('The fetch was unsuccessful.');
+      }
+    }).then(data => {
+      this.setState({
+        repos: data
+      });
+    });
   }
 
   search (term) {
@@ -19,7 +36,7 @@ class App extends React.Component {
       url: "/repos",
       data: JSON.stringify(term),
       contentType: "json",
-      success: function(data) {
+      success: function() {
         console.log('The search was successful.');
       },
       error: function() {
