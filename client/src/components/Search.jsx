@@ -1,4 +1,5 @@
 import React from 'react';
+import RepoList from './RepoList.jsx';
 
 class Search extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Search extends React.Component {
       <div>
         <h4>Add more repos!</h4>
         Enter a github username:
-        <input value={this.state.terms} onChange={this.onChange} type="text" name="usernameInput"/>
+        <input value={this.state.terms} onChange={this.onChange}/>
         <button onClick={this.search}> Add Repos </button>
       </div>
     ) 

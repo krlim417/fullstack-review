@@ -18,7 +18,6 @@ class App extends React.Component {
       url: "/repos",
       success: function(data) {
         console.log('The fetch was successful.');
-        console.log('DATA', data);
       },
       error: function() {
         console.log('The fetch was unsuccessful.');
