@@ -14,7 +14,7 @@ const RepoList = (props) => (
           {props.repos.map((repo, index) => {
             return (
               <tr>
-                <td key={repo.name}>{repo.name}</td>
+                <td key={repo.repoId}><a href={repo.repoUrl}>{repo.name}</a></td>
                 <td key={repo.repoUrl}>{repo.forks}</td>
               </tr>
             )

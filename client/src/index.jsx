@@ -29,6 +29,23 @@ class App extends React.Component {
     });
   }
 
+  get() {
+    $.ajax({
+      type: "GET",
+      url: "/repos",
+      success: function(data) {
+        console.log('The fetch was successful.');
+      },
+      error: function() {
+        console.log('The fetch was unsuccessful.');
+      }
+    }).then(data => {
+      this.setState({
+        repos: data
+      });
+    });
+  }
+
   search (term) {
     $.ajax({
       type: "POST",
